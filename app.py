@@ -1,8 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort, request
 from gpiozero import PWMLED
 import threading
 import random
-import signal
 import time
 
 app = Flask(__name__)
@@ -25,33 +24,46 @@ def index():
    return render_template('index.html')
 
 # RGB user inputs
-@app.route('/red', methods=['POST'])
-def toggleRed():
-    _toggle(led_R)
-    return 'r'
+@app.route('/command', methods=['POST'])
+def process_command():
+    valid_commands = ['red', 'green', 'blue', 'off']
+    data = json.loads(request.data.decode('utf8'))
+    command = data.get('command')
 
-@app.route('/green', methods=['POST'])
-def toggleGreen():
-    _toggle(led_G)
-    return 'g'
+    # Abort if POST request is invalid.
+    if command is None or command not in valid_commands:
+        abort(400)
+    else:
+        _toggle(command)
+        return "done"
 
-@app.route('/blue', methods=['POST'])
-def toggleBlue():
-    _toggle(led_B)
-    return 'b'
-
-def _toggle(led):
+def _toggle(cmd):
     flag = 0
     for l in leds:
         l.off()
 
+    if cmd == 'off':
+        break
+    elif cmd == 'red':
+        led = led_R
+    elif cmd == 'green':
+        led = led_G
+    elif cmd == 'blue':
+        led ==led_B
+    else:
+        abort(500)
+
     if led.value == 0:
         led.on()
-    # if idle, blink fancy
-    threading.Timer(60.0, _set_flag)
 
-def _set_flag():
-    flag = 1
+def _count_idle():
+    counter = 0
+    while True:
+        if flag == 0:
+            counter += 1
+        if counter > 5000000:
+            flag = 1
+            counter = 0
 
 def _blink_fancy():
     while flag == 1:
