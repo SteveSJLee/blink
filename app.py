@@ -28,20 +28,20 @@ def index():
    return render_template('index.html')
 
 # RGB user inputs
-@app.route('/red', methods=['POST'])
+@app.route('/red/', methods=['POST'])
 def toggleRed():
     _toggle(led_R)
-    return '', 201
+    return ('', 204)
 
-@app.route('/green', methods=['POST'])
+@app.route('/green/', methods=['POST'])
 def toggleGreen():
     _toggle(led_G)
-    return '', 201
+    return ('', 204)
 
-@app.route('/blue', methods=['POST'])
+@app.route('/blue/', methods=['POST'])
 def toggleBlue():
     _toggle(led_B)
-    return '', 201
+    return ('', 204)
 
 def _toggle(led):
     global flag
