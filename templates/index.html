@@ -12,6 +12,7 @@
     <h2 class="display-2">LEDs</h2>
     <br>
     {# Button Grid #}
+    <div class="btn-group" role="group" aria-label="Basic example">
         <form method="post" action="/red/">
             <button type="submit" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
               Red
@@ -27,14 +28,17 @@
               Blue
             </button>
         </form>
-</div>
-    <div class="container">
-        <form method="post" action="/off/">
-            <button type="submit" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Off
-            </button>
-        </form>
     </div>
+</div>
+<div class="container">
+    <form method="post" action="/off/">
+        <button type="submit" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">
+          Off
+        </button>
+    </form>
+</div>
+
+
 
 </body>
 </html>
