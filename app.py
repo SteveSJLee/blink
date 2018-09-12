@@ -17,8 +17,11 @@ flag = 1
 
 @app.before_first_request
 def onStart():
+    print('hello world")
+    '''
     t = threading.Thread(target=_blink_fancy, daemon=True)
     t.start()
+    '''
 
 @app.route("/")
 def index():
@@ -28,19 +31,20 @@ def index():
 @app.route('/red', methods=['POST'])
 def toggleRed():
     _toggle(led_R)
-    return '', 204
+    return '', 201
 
 @app.route('/green', methods=['POST'])
 def toggleGreen():
     _toggle(led_G)
-    return '', 204
+    return '', 201
 
 @app.route('/blue', methods=['POST'])
 def toggleBlue():
     _toggle(led_B)
-    return '', 204
+    return '', 201
 
 def _toggle(led):
+    global flag
     flag = 0
     for l in leds:
         l.off()
@@ -51,6 +55,7 @@ def _toggle(led):
     #threading.Timer(60.0, _set_flag)
 
 def _set_flag():
+    global flag
     flag = 1
 
 def _blink_fancy():
