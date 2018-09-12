@@ -4,29 +4,32 @@
     <title>LED Controller</title>
     <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}"/>
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"/>
 </head>
 <body>
 
 {# Container for Controls #}
 <div class="container">
-    <h2 class="display-2">Controls</h2>
+    <img src="/static/ere.logo.jpg" width="823" height="322">
+    <h2 class="display-2">LEDs</h2>
     <br>
-
     {# Button Grid #}
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-danger active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> Red
+            <form method="post" action="/red">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Red
+            </form>
         </label>
         <label class="btn btn-success">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Green
+            <form method="post" action="/green">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Green
+            </form> 
         </label>
         <label class="btn btn-primary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Blue
+            <form method="post" action="/blue">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Blue
+            </form>
         </label>
     </div>
-
 </div>
-
 </body>
 </html>
