@@ -17,7 +17,7 @@ flag = 1
 
 @app.before_first_request
 def onStart():
-    print('hello world")
+    print('hello world')
     '''
     t = threading.Thread(target=_blink_fancy, daemon=True)
     t.start()
