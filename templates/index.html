@@ -11,15 +11,18 @@
 <div class="container">
     <h2 class="display-2">LEDs</h2>
     <br>
+</div>
+
+<div class="container">
     {# Button Grid #}
     <div class="btn-group" role="group" aria-label="Basic example">
         <form method="post" action="/red/">
-            <button type="submit" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
               Red
             </button>
         </form>
         <form method="post" action="/green/">
-            <button type="submit" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
               Green
             </button>
         </form>
@@ -29,15 +32,14 @@
             </button>
         </form>
     </div>
+    <div class="row">
+        <form method="post" action="/off/">
+            <button type="submit" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">
+              Off
+            </button>
+        </form>
+    </div>
 </div>
-<div class="container">
-    <form method="post" action="/off/">
-        <button type="submit" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">
-          Off
-        </button>
-    </form>
-</div>
-
 
 
 </body>
