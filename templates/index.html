@@ -2,40 +2,38 @@
 <html>
 <head>
     <title>LED Controller</title>
-    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='index.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}"/>
 </head>
 <body>
 
-<div class="container">
-    <img src="{{ url_for('static', filename = 'ere_logo.png') }}" alt="User Image" width="823" height="322">
-</div>
-
 {# Container for Controls #}
 <div class="container">
+    <div class="row">
+        <img src="/static/ere.logo.jpg" width="823" height="322">
+    </div>
     <h2 class="display-2">LEDs</h2>
     <br>
     {# Button Grid #}
     <div class="row">
-        <div class="col-md-2 offset-md-3">
-            <button type="button" value="red" class="btn btn-red btn-primary button_control" id="button-red">Red</button>
-        </div>
-        <div class="col-md-2">
-            <button type="button" value="green" class="btn btn-green btn-danger button_control" id="button-green">Green</button>
-        </div>
-        <div class="col-md-2">
-            <button type="button" value="blue" class="btn btn-blue btn-primary button_control" id="button-blue">Blue</button>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-danger active">
+                <form method="post" action="/red">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Red
+                </form>
+            </label>
+            <label class="btn btn-success">
+                <form method="post" action="/green">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Green
+                </form> 
+            </label>
+            <label class="btn btn-primary">
+                <form method="post" action="/blue">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> Blue
+                </form>
+            </label>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-2">
-            <button type="button" value="off" class="btn btn-black btn-primary button_control" id="button-off">Off</button>
-        </div>
-    </div>
-
 </div>
-
 </body>
 </html>
