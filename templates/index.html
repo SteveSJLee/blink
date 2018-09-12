@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LED Controller</title>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"/>
+</head>
+<body>
+
+{# Container for Controls #}
+<div class="container">
+    <h2 class="display-2">Controls</h2>
+    <br>
+
+    {# Button Grid #}
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-danger active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Red
+        </label>
+        <label class="btn btn-success">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Green
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Blue
+        </label>
+    </div>
+
+</div>
+
+</body>
+</html>
