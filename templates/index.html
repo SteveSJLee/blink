@@ -12,23 +12,31 @@
     <h2 class="display-2">LEDs</h2>
     <br>
     {# Button Grid #}
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-danger active">
-            <form method="post" action="/red">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Red
+    <div class="row">
+        <div class="col">
+            <form method="post" action="/red/">
+                <button type="submit" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  Red
+                </button>
             </form>
-        </label>
-        <label class="btn btn-success">
-            <form method="post" action="/green">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Green
-            </form> 
-        </label>
-        <label class="btn btn-primary">
-            <form method="post" action="/blue">
-                <input type="radio" name="options" id="option3" autocomplete="off"> Blue
+        </div>
+        <div class="col">
+            <form method="post" action="/green/">
+                <button type="submit" class="btnbtn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  Green
+                </button>
             </form>
-        </label>
+        </div>
+            <div class="col">
+            <form method="post" action="/blue/">
+                <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  Blue
+                </button>
+            </form>
+        </div>
     </div>
+
+    </form>
 </div>
 
 <img src="{{ url_for('static', filename = 'ere_logo.png') }}" alt="User Image" width="823" height="322">
