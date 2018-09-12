@@ -28,17 +28,17 @@ def index():
 @app.route('/red', methods=['POST'])
 def toggleRed():
     _toggle(led_R)
-    return 'r'
+    return render_template('index.html')
 
 @app.route('/green', methods=['POST'])
 def toggleGreen():
     _toggle(led_G)
-    return 'g'
+    return render_template('index.html')
 
 @app.route('/blue', methods=['POST'])
 def toggleBlue():
     _toggle(led_B)
-    return 'b'
+    return render_template('index.html')
 
 def _toggle(led):
     flag = 0
@@ -46,20 +46,21 @@ def _toggle(led):
         l.off()
 
     if led.value == 0:
-        led.on()
+        led.value = 1
     # if idle, blink fancy
-    threading.Timer(60.0, _set_flag)
+    #threading.Timer(60.0, _set_flag)
 
 def _set_flag():
     flag = 1
 
 def _blink_fancy():
-    while flag == 1:
-        num = random.randrange(3)
-        led = leds[num]
-        led.pulse()
-        time.sleep(random.random()*1.5)
-        led.off()
+    while True:
+        if flag == 1:
+            num = random.randrange(3)
+            led = leds[num]
+            led.pulse()
+            time.sleep(random.random()*1.5)
+            led.off()
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
