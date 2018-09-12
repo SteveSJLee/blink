@@ -43,6 +43,12 @@ def toggleBlue():
     _toggle(led_B)
     return ('', 204)
 
+@app.route('/off/', methods=['POST'])
+def ledOFF():
+    for l in leds:
+        l.off()
+    return ('', 204)
+
 def _toggle(led):
     global flag
     flag = 0
