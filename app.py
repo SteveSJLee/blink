@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for
-from gpiozero import PWMLED
+from gpiozero import LED, PWMLED
 import threading
 import random
 import signal
@@ -8,20 +8,23 @@ import time
 app = Flask(__name__)
 
 r,g,b = 16, 21, 20
+'''
 led_R = PWMLED(r)
 led_G = PWMLED(g)
 led_B = PWMLED(b)
+'''
+led_R = LED(r)
+led_G = LED(g)
+led_B = LED(b)
 leds = [led_R, led_G, led_B]
 
 flag = 1
 
 @app.before_first_request
 def onStart():
-    print('hello world')
-    '''
-    t = threading.Thread(target=_blink_fancy, daemon=True)
-    t.start()
-    '''
+    print("hello world")
+    #t = threading.Thread(target=_blink_fancy, daemon=True)
+    #t.start()
 
 @app.route("/")
 def index():
@@ -50,7 +53,6 @@ def ledOFF():
     return ('', 204)
 
 def _toggle(led):
-    global flag
     flag = 0
     for l in leds:
         l.off()
@@ -61,7 +63,6 @@ def _toggle(led):
     #threading.Timer(60.0, _set_flag)
 
 def _set_flag():
-    global flag
     flag = 1
 
 def _blink_fancy():
