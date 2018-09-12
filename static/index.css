@@ -7,7 +7,13 @@
 .btn {
     display: block;
     margin: 10% auto;
+    color: white;
 }
+
+.btn-blue {background-color: #008CBA;} /* Blue */
+.btn-red {background-color: #f44336;} /* Red */ 
+.btn-green {background-color: #4CAF50;} /* Green */ 
+.btn-black {background-color: #555555;} /* Black */
 
 .col-md-2 {
     padding-left: 0;
