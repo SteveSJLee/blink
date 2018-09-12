@@ -13,32 +13,31 @@
     <br>
     {# Button Grid #}
     <div class="row">
-        <div class="col">
-            <form method="post" action="/red/">
-                <button type="submit" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
-                  Red
-                </button>
-            </form>
-        </div>
-        <div class="col">
-            <form method="post" action="/green/">
-                <button type="submit" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
-                  Green
-                </button>
-            </form>
-        </div>
-            <div class="col">
-            <form method="post" action="/blue/">
-                <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                  Blue
-                </button>
-            </form>
-        </div>
+        <form method="post" action="/red/">
+            <button type="submit" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
+              Red
+            </button>
+        </form>
+        <form method="post" action="/green/">
+            <button type="submit" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+              Green
+            </button>
+        </form>
+        <form method="post" action="/blue/">
+            <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+              Blue
+            </button>
+        </form>
+    </div>
+    <div class="row">
+        <form method="post" action="/off/">
+            <button type="submit" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">
+              Off
+            </button>
+        </form>
     </div>
 
-    </form>
 </div>
 
-<img src="{{ url_for('static', filename = 'ere_logo.png') }}" alt="User Image" width="823" height="322">
 </body>
 </html>
