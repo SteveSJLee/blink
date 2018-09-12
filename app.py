@@ -48,12 +48,11 @@ def _set_flag():
     flag = 1
 
 def _blink_fancy():
-    rand = random()
     while flag == 1:
-        num = rand.randrange(3)
+        num = random.randrange(3)
         led = leds[num]
         led.pulse()
-        time.sleep(rand.random())
+        time.sleep(random.random())
         led.off()
 
 if __name__ == "__main__":
